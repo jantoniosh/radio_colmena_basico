@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:600" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="es-mx">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="twitter:description" content="Radio por Internet La Colmena, Tlaxcala">
+    <title>La Colmena</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!--CSS-->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Gotham-Bold';
+            src: url('Gotham-Bold.otf')  format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html { 
+            background: #031c3a url(logo_1.png) no-repeat center center; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: auto;
+        }
+
+        body {
+            width:100%;
+            min-height:100vh;
+            padding: 0;
+            margin:0;
+            color:#0a1d3b;
+            font-family: 'Gotham-Bold', sans-serif;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 4em;
+            line-height: .8;
+            color: #fff;
+        }
+
+        h2 {
+            font-weight: normal;
+            font-size: 2em;
+            line-height: .9;
+            color: #fff;
+        }
+
+        #player {
+            width: 100%;
+            display: flex;
+            color:#fff;
+        }
+
+        #player audio{display: none;}
+
+        #player #pause{display:none;}
+        #player.on #playbutton{display:none;}
+        #player #playbutton{display:block; line-height: 1;}
+        #player.on #pause{display:block;}
+
+        #vivo {
+            font-size: 2em;
+        }
+
+        #play {
+            font-size: 1.7em;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-top: 2%;
+            margin-left: 3%;
+        }
+
+        .texto{
+            width: 100%;
+        }
+
+        .svg-inline--fa {
+            height: .7em;
+        }
+
+        @media only screen and (max-width:900px) {
+            #player {
+                color: #fff;
+            }
+            svg g{fill:#fff !important;}
+        }
+    </style>
+    <script>
+        jQuery(document).ready(function($) {
+            $('#playbutton').click(function() {
+                $('#player').toggleClass('on');
+                $('#audio-player').trigger('play');
+            });
+            $('#pause').click(function() {
+                $('#player').toggleClass('on');
+                $('#audio-player').trigger('pause');
+            });
+        });
+    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="texto">
+            <h1>LA COLMENA</h1>
+        </div>
+        <div id="player" class="">
+        	<audio id="audio-player"><source src="http://mensajito.mx:8000/1e4e63be728b"></audio>
+        		<div id="vivo">ESCUCHA: </div>
+        		<div id="play">
+        			<div id="pause">
+        			<svg width="15px" height="30px" viewBox="0 0 47 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        				<defs></defs>
+        				<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        					<g fill="#fff">
+        						<polygon id="Fill-1" points="0 76.6483 15.778 76.6483 15.778 0.0003 0 0.0003"></polygon>
+        						<polygon id="Fill-2" points="30.736 76.6483 46.514 76.6483 46.514 0.0003 30.736 0.0003"></polygon>
+        					</g>
+        				</g>
+        			</svg>
+        			</div>
+        			<div id="playbutton"><i class="fas fa-play"></i></div>
+        		</div>
+        </div>
+        <div class="texto">
+            <h2><br></h2>
+            <span id="listeners"></span>
+            <span id="track-title"></span>
+        </div>
+    </div>
+</body>
+</html>
